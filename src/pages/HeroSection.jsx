@@ -1,4 +1,6 @@
 import React from 'react'
+import Button from '../components/Button'
+import RightSectionContent from './RightSection/RightSectionContent'
 
 const HeroSection = () => {
   return (
