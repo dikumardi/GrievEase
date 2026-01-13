@@ -8,7 +8,7 @@ const FormPage = () => {
 
     <h2 className='text-center font-bold text-3xl mb-3'>Submit a Grievance</h2>
     <p className='text-center text-gray-500 mb-3'>Fill up the form below to report any issues or concerns you're experiencing in the hostel</p>
-    <div className="bg-white w-75 p-10 lg:w-150">
+    <div className="bg-white w-75 p-10 lg:w-150 rounded">
    
   <form className="space-y-3 ">
        
