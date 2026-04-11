@@ -61,7 +61,7 @@ const Admin = ({handleLogin}) => {
           </button>
 <div className="flex items-center justify-center gap-3  p-3 rounded-2xl mt-6">
    <div className="whitespace-nowrap cursor-pointer active:scale-95 text-sm">Admin Login</div> |   
-   <div className="whitespace-nowrap cursor-pointer active:scale-95 text-sm ">Regester Now</div>
+   <div className="whitespace-nowrap cursor-pointer active:scale-95 text-sm ">Register Now</div>
    </div>
         </form>
     </div>
