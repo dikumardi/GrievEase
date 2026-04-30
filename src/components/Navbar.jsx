@@ -12,8 +12,8 @@ const Navbar = () => {
    <div className=" flex gap-5">
    <Link to='/'>Home</Link>
    <Link to='/formpage' >Submit GrievEase</Link>
-   <Link>Track Status</Link>
-   <Link to='/adminpage' >Admin</Link>
+   <Link to='/track'>Track Status</Link>
+   <Link to='/admin' >Admin</Link>
    </div>
    
     </nav>
