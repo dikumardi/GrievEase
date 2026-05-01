@@ -8,6 +8,7 @@ import Admin from "./pages/Admin";
 import AdminDashboard from "./pages/AdminDashboard";
 import UserDashboard from "./pages/UserDashboard";
 import TrackStatus from "./pages/TrackStatus";
+import Home from "./pages/Home";
 
 const App = () => {
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ const App = () => {
 
       <Routes>
         {/* Public Routes */}
-        <Route path="/" element={<HeroSection />} />
+        <Route path='/' element={<Home />} />
         <Route path="/formpage" element={<FormPage />} />
         <Route path="/admin" element={<Admin handleLogin={handleLogin} />} />
         <Route path="/track" element={<TrackStatus />} />
