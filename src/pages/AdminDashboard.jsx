@@ -22,6 +22,18 @@ const grievances = [
       "The ceiling fan has stopped working and makes noise...",
     status: "In Progress",
   },
+
+   {
+    id: "#GR-234571",
+    title: "Food",
+    category: "mess",
+    room: "Room A-101",
+    date: "11/15/2023",
+    description:
+      "The ceiling fan has stopped working and makes noise...",
+    status: "pending",
+  },
+
 ];
 
 const StatusBadge = ({ status }) => {
