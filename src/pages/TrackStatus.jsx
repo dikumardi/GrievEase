@@ -1,4 +1,3 @@
-// TrackStatus.jsx
 import React, { useState } from "react";
 
 const mockData = {
@@ -33,10 +32,18 @@ const StatusBadge = ({ status }) => {
 export default function TrackStatus() {
   const [grievanceId, setGrievanceId] = useState("");
   const [data, setData] = useState(null);
+  const [recent, setRecent] = useState([]);
 
-  const handleSearch = () => {
-    const result = mockData[grievanceId];
+  const handleSearch = (id = grievanceId) => {
+    const result = mockData[id];
     setData(result || null);
+
+    if (result) {
+      setRecent((prev) => {
+        const updated = [id, ...prev.filter((item) => item !== id)];
+        return updated.slice(0, 5); // keep only last 5
+      });
+    }
   };
 
   return (
@@ -55,12 +62,33 @@ export default function TrackStatus() {
           onChange={(e) => setGrievanceId(e.target.value)}
         />
         <button
-          onClick={handleSearch}
+          onClick={() => handleSearch()}
           className="bg-blue-600 text-white px-4 rounded"
         >
           Track
         </button>
       </div>
+
+      {/*  Recent Section */}
+      {recent.length > 0 && (
+        <div className="bg-white p-4 rounded-xl shadow mb-6">
+          <h2 className="font-semibold mb-3">Recent Searches</h2>
+          <div className="flex gap-2 flex-wrap">
+            {recent.map((id, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setGrievanceId(id);
+                  handleSearch(id);
+                }}
+                className="bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded"
+              >
+                {id}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Result */}
       {data ? (
