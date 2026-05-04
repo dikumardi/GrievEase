@@ -4,23 +4,23 @@ const faqs = [
   {
     question: "How do I submit a grievance?",
     answer:
-      "Go to the 'Submit Grievance' page and fill out the form with your issue details."
+      "Go to the 'Submit Grievance' page and fill out the form with your issue details.",
   },
   {
     question: "How can I track my complaint?",
     answer:
-      "Use the 'Track Status' page and enter your grievance ID to see the progress."
+      "Use the 'Track Status' page and enter your grievance ID to see the progress.",
   },
   {
     question: "How long does it take to resolve issues?",
     answer:
-      "Most grievances are resolved within 24–72 hours depending on the issue type."
+      "Most grievances are resolved within 24–72 hours depending on the issue type.",
   },
   {
     question: "Can I edit my grievance after submission?",
     answer:
-      "Currently, editing is not available. You can contact the admin for updates."
-  }
+      "Currently, editing is not available. You can contact the admin for updates.",
+  },
 ];
 
 const FAQ = () => {
@@ -48,7 +48,7 @@ const FAQ = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white border rounded-xl shadow-sm overflow-hidden"
+              className="bg-white border rounded-xl shadow-sm"
             >
               {/* Question */}
               <button
@@ -59,15 +59,20 @@ const FAQ = () => {
                   {faq.question}
                 </span>
 
-                <span className="text-xl font-bold text-blue-600">
-                  {openIndex === index ? "−" : "+"}
+                {/* Arrow Icon */}
+                <span
+                  className={`transform transition-transform duration-300 ${
+                    openIndex === index ? "rotate-180" : ""
+                  }`}
+                >
+                  ▼
                 </span>
               </button>
 
               {/* Answer */}
               <div
-                className={`px-5 text-sm text-gray-600 transition-all duration-300 ${
-                  openIndex === index ? "max-h-40 py-3" : "max-h-0 overflow-hidden"
+                className={`px-5 text-sm text-gray-600 overflow-hidden transition-all duration-300 ${
+                  openIndex === index ? "max-h-40 py-3" : "max-h-0"
                 }`}
               >
                 {faq.answer}
