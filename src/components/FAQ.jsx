@@ -14,7 +14,7 @@ const faqs = [
   {
     question: "How long does it take to resolve issues?",
     answer:
-      "Most grievances are resolved within 24–72 hours depending on the issue type.",
+      "Most grievances are resolved within 24/7 hours depending on the issue type.",
   },
   {
     question: "Can I edit my grievance after submission?",
