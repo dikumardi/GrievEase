@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 import HeroSection from "./pages/HeroSection";
 import FormPage from "./pages/FormPage";
 import Admin from "./pages/Admin";
 import AdminDashboard from "./pages/AdminDashboard";
 import UserDashboard from "./pages/UserDashboard";
 import TrackStatus from "./pages/TrackStatus";
-import Home from "./pages/Home";
 
 const App = () => {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const App = () => {
     localStorage.getItem("role") || null
   );
 
-  // Handle Login
+  // 🔐 Login
   const handleLogin = (email, password) => {
     if (email === "admin@gmail.com" && password === "123") {
       setUserRole("admin");
@@ -33,7 +33,7 @@ const App = () => {
     }
   };
 
-  // Logout
+  // 🚪 Logout
   const handleLogout = () => {
     setUserRole(null);
     localStorage.removeItem("role");
@@ -42,12 +42,11 @@ const App = () => {
 
   return (
     <div>
-      {/* Navbar gets role + logout */}
       <Navbar userRole={userRole} handleLogout={handleLogout} />
 
       <Routes>
         {/* Public Routes */}
-        <Route path='/' element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/formpage" element={<FormPage />} />
         <Route path="/admin" element={<Admin handleLogin={handleLogin} />} />
         <Route path="/track" element={<TrackStatus />} />
@@ -56,7 +55,11 @@ const App = () => {
         <Route
           path="/adminDashboard"
           element={
-            userRole === "admin" ? <AdminDashboard /> : <HeroSection />
+            userRole === "admin" ? (
+              <AdminDashboard />
+            ) : (
+              <Navigate to="/admin" />
+            )
           }
         />
 
@@ -64,9 +67,16 @@ const App = () => {
         <Route
           path="/userDashboard"
           element={
-            userRole === "user" ? <UserDashboard /> : <HeroSection />
+            userRole === "user" ? (
+              <UserDashboard />
+            ) : (
+              <Navigate to="/admin" />
+            )
           }
         />
+
+        {/* 404 Route */}
+        <Route path="*" element={<h1 className="text-center mt-10">404 - Page Not Found</h1>} />
       </Routes>
     </div>
   );
