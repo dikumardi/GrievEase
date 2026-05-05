@@ -9,6 +9,10 @@ import Admin from "./pages/Admin";
 import AdminDashboard from "./pages/AdminDashboard";
 import UserDashboard from "./pages/UserDashboard";
 import TrackStatus from "./pages/TrackStatus";
+import FAQ from "./components/FAQ";
+import Privacy from "./pages/Privacy";
+import Help from "./pages/Help";
+import Terms from "./pages/Terms";
 
 const App = () => {
   const navigate = useNavigate();
@@ -50,6 +54,10 @@ const App = () => {
         <Route path="/formpage" element={<FormPage />} />
         <Route path="/admin" element={<Admin handleLogin={handleLogin} />} />
         <Route path="/track" element={<TrackStatus />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/help" element={<Help />} />
+        <Route path="/terms" element={<Terms />} />
 
         {/* Protected Admin Route */}
         <Route
